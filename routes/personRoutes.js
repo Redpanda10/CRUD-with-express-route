@@ -63,21 +63,21 @@ router.put('/:id',async(req,res)=>{
     }
 })
 //delete person data
-router.delete('/:id',async (req,res)=>{
+router.delete('/:id',async(req,res)=>{
     try{
         const personId=req.params.id
-        const response=await person.findByIdAndRemove(personId)
+        const response=await person.findByIdAndDelete(personId)
         if(!response){
             return res.status(404).json({error:"person not found"})
         }
         console.log("data deleted successfully")
-        res.status(200).json({message:'person deleted successfuly'})
+        res.status(200).json(response)
     }catch(err){
         console.log(err)
-        res.status(500).json({error:"internal server error"})
+        res.status(500).json({error:" not found"})
     }
 })
 
 
-
+//export it
 module.exports=router;

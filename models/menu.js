@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//this is the menu schema
 const  menuitemschema= new mongoose.Schema({
     name: {type: String, required: true,unique: true},
     price: {type: Number, required: true},
